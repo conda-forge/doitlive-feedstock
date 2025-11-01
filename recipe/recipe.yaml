@@ -1,6 +1,6 @@
 context:
   name: doitlive
-  version: "5.1.0"
+  version: "5.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,15 +8,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/d/doitlive/doitlive-${{ version }}.tar.gz
-  sha256: b6bcd25f9f037b7e96e34d68549306adb3e8c83f6e92c51ec2b225abc05b25c5
+  sha256: 041bbdf197c36b2a497c4d0a69dac53a777a77564b57ac02d4777d6058d170fa
 
 build:
   noarch: python
   script: python -m pip install . -vv
   number: 0
   python:
-    entry_points:
-      doitlive = doitlive.cli:cli
+    entry_points: doitlive = doitlive.cli:cli
 
 requirements:
   host:
@@ -32,11 +31,11 @@ requirements:
 tests:
   - python:
       imports:
-      - doitlive
+        - doitlive
       pip_check: true
       python_version: ${{ python_min }}.*
   - script:
-    - doitlive --help
+      - doitlive --help
     requirements:
       run:
         - python ${{ python_min }}.*
