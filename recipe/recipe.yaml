@@ -13,9 +13,10 @@ source:
 build:
   noarch: python
   script: python -m pip install . -vv
-  number: 0
+  number: 1
   python:
-    entry_points: doitlive = doitlive.cli:cli
+    entry_points:
+      - doitlive = doitlive.cli:cli
 
 requirements:
   host:
